@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none">
+  <defs>
+    <linearGradient id="screenGrad" x1="36" y1="22" x2="92" y2="106" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="52%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#4338CA"/>
+    </linearGradient>
+    <linearGradient id="bezelGrad" x1="30" y1="14" x2="98" y2="114" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#273043"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Subtle radar pulse arcs extending from right edge (stays within 10% margin) -->
+  <path d="M103 48 C109 54 112 60 112 64 C112 68 109 74 103 80" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+  <path d="M108 40 C115 48 118 56 118 64 C118 72 115 80 108 88" stroke="#6366F1" stroke-width="2.5" stroke-linecap="round" opacity="0.65"/>
+
+  <!-- Outer iPhone chassis with crisp high-contrast border for both light & dark themes -->
+  <rect x="26" y="14" width="68" height="100" rx="16" fill="url(#bezelGrad)" stroke="#94A3B8" stroke-width="3"/>
+
+  <!-- Inner vibrant screen -->
+  <rect x="33" y="21" width="54" height="86" rx="10.5" fill="url(#screenGrad)"/>
+
+  <!-- Radar rings inside screen -->
+  <circle cx="60" cy="64" r="21" stroke="#FFFFFF" stroke-opacity="0.28" stroke-width="2"/>
+  <circle cx="60" cy="64" r="14" fill="#0F172A" fill-opacity="0.34" stroke="#E0F2FE" stroke-opacity="0.7" stroke-width="1.8"/>
+
+  <!-- Live Play triangle -->
+  <path d="M56.5 57.5 L67.5 64 L56.5 70.5 Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"/>
+
+  <!-- Dynamic Island -->
+  <rect x="49" y="25" width="22" height="5" rx="2.5" fill="#0F172A"/>
+
+  <!-- Home indicator -->
+  <rect x="49" y="100.5" width="22" height="3" rx="1.5" fill="#FFFFFF" fill-opacity="0.88"/>
+
+  <!-- Live streaming status badge dot -->
+  <circle cx="92" cy="24" r="8" fill="#10B981" stroke="#FFFFFF" stroke-width="2.5"/>
+</svg>

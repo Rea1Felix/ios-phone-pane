@@ -1,0 +1,1205 @@
+:root {
+  /* Raw light/dark fallback tokens for standalone or partial host theming */
+  --fb-bg-primary-light: #f6f7f9;
+  --fb-bg-primary-dark: #141518;
+  --fb-bg-secondary-light: #ffffff;
+  --fb-bg-secondary-dark: #1c1e23;
+  --fb-bg-tertiary-light: #eceef2;
+  --fb-bg-tertiary-dark: #252830;
+
+  --fb-text-primary-light: #15171c;
+  --fb-text-primary-dark: #f0f2f6;
+  --fb-text-secondary-light: #4f5664;
+  --fb-text-secondary-dark: #a3abb9;
+  --fb-text-tertiary-light: #6b7382;
+  --fb-text-tertiary-dark: #7d8594;
+
+  --fb-border-primary-light: rgba(15, 23, 42, 0.14);
+  --fb-border-primary-dark: rgba(255, 255, 255, 0.13);
+  --fb-border-secondary-light: rgba(15, 23, 42, 0.08);
+  --fb-border-secondary-dark: rgba(255, 255, 255, 0.08);
+
+  --fb-ring-primary-light: #2563eb;
+  --fb-ring-primary-dark: #60a5fa;
+
+  --fb-bg-info-light: rgba(37, 99, 235, 0.12);
+  --fb-bg-info-dark: rgba(96, 165, 250, 0.16);
+  --fb-text-info-light: #1d4ed8;
+  --fb-text-info-dark: #93c5fd;
+
+  --fb-bg-success-light: rgba(22, 163, 74, 0.13);
+  --fb-bg-success-dark: rgba(74, 222, 128, 0.16);
+  --fb-text-success-light: #15803d;
+  --fb-text-success-dark: #86efac;
+
+  --fb-bg-warning-light: rgba(217, 119, 6, 0.14);
+  --fb-bg-warning-dark: rgba(251, 191, 36, 0.16);
+  --fb-text-warning-light: #b45309;
+  --fb-text-warning-dark: #fcd34d;
+
+  --fb-bg-danger-light: rgba(220, 38, 38, 0.12);
+  --fb-bg-danger-dark: rgba(248, 113, 113, 0.16);
+  --fb-text-danger-light: #b91c1c;
+  --fb-text-danger-dark: #fca5a5;
+
+  /* Default (light) fallback mapping */
+  --fb-bg-primary: var(--fb-bg-primary-light);
+  --fb-bg-secondary: var(--fb-bg-secondary-light);
+  --fb-bg-tertiary: var(--fb-bg-tertiary-light);
+  --fb-text-primary: var(--fb-text-primary-light);
+  --fb-text-secondary: var(--fb-text-secondary-light);
+  --fb-text-tertiary: var(--fb-text-tertiary-light);
+  --fb-border-primary: var(--fb-border-primary-light);
+  --fb-border-secondary: var(--fb-border-secondary-light);
+  --fb-ring-primary: var(--fb-ring-primary-light);
+  --fb-bg-info: var(--fb-bg-info-light);
+  --fb-text-info: var(--fb-text-info-light);
+  --fb-bg-success: var(--fb-bg-success-light);
+  --fb-text-success: var(--fb-text-success-light);
+  --fb-bg-warning: var(--fb-bg-warning-light);
+  --fb-text-warning: var(--fb-text-warning-light);
+  --fb-bg-danger: var(--fb-bg-danger-light);
+  --fb-text-danger: var(--fb-text-danger-light);
+
+  /* Fallback for browsers without light-dark() */
+  @media (prefers-color-scheme: dark) {
+    --fb-bg-primary: var(--fb-bg-primary-dark);
+    --fb-bg-secondary: var(--fb-bg-secondary-dark);
+    --fb-bg-tertiary: var(--fb-bg-tertiary-dark);
+    --fb-text-primary: var(--fb-text-primary-dark);
+    --fb-text-secondary: var(--fb-text-secondary-dark);
+    --fb-text-tertiary: var(--fb-text-tertiary-dark);
+    --fb-border-primary: var(--fb-border-primary-dark);
+    --fb-border-secondary: var(--fb-border-secondary-dark);
+    --fb-ring-primary: var(--fb-ring-primary-dark);
+    --fb-bg-info: var(--fb-bg-info-dark);
+    --fb-text-info: var(--fb-text-info-dark);
+    --fb-bg-success: var(--fb-bg-success-dark);
+    --fb-text-success: var(--fb-text-success-dark);
+    --fb-bg-warning: var(--fb-bg-warning-dark);
+    --fb-text-warning: var(--fb-text-warning-dark);
+    --fb-bg-danger: var(--fb-bg-danger-dark);
+    --fb-text-danger: var(--fb-text-danger-dark);
+  }
+
+  /* Progressive enhancement via CSS light-dark() driven by computed color-scheme */
+  @supports (color: light-dark(white, black)) {
+    --fb-bg-primary: light-dark(var(--fb-bg-primary-light), var(--fb-bg-primary-dark));
+    --fb-bg-secondary: light-dark(var(--fb-bg-secondary-light), var(--fb-bg-secondary-dark));
+    --fb-bg-tertiary: light-dark(var(--fb-bg-tertiary-light), var(--fb-bg-tertiary-dark));
+    --fb-text-primary: light-dark(var(--fb-text-primary-light), var(--fb-text-primary-dark));
+    --fb-text-secondary: light-dark(var(--fb-text-secondary-light), var(--fb-text-secondary-dark));
+    --fb-text-tertiary: light-dark(var(--fb-text-tertiary-light), var(--fb-text-tertiary-dark));
+    --fb-border-primary: light-dark(var(--fb-border-primary-light), var(--fb-border-primary-dark));
+    --fb-border-secondary: light-dark(var(--fb-border-secondary-light), var(--fb-border-secondary-dark));
+    --fb-ring-primary: light-dark(var(--fb-ring-primary-light), var(--fb-ring-primary-dark));
+    --fb-bg-info: light-dark(var(--fb-bg-info-light), var(--fb-bg-info-dark));
+    --fb-text-info: light-dark(var(--fb-text-info-light), var(--fb-text-info-dark));
+    --fb-bg-success: light-dark(var(--fb-bg-success-light), var(--fb-bg-success-dark));
+    --fb-text-success: light-dark(var(--fb-text-success-light), var(--fb-text-success-dark));
+    --fb-bg-warning: light-dark(var(--fb-bg-warning-light), var(--fb-bg-warning-dark));
+    --fb-text-warning: light-dark(var(--fb-text-warning-light), var(--fb-text-warning-dark));
+    --fb-bg-danger: light-dark(var(--fb-bg-danger-light), var(--fb-bg-danger-dark));
+    --fb-text-danger: light-dark(var(--fb-text-danger-light), var(--fb-text-danger-dark));
+  }
+
+  /* Antigravity host CSS variables take top priority */
+  --bg-primary: var(--color-background-primary, var(--fb-bg-primary));
+  --bg-secondary: var(--color-background-secondary, var(--fb-bg-secondary));
+  --bg-tertiary: var(--color-background-tertiary, var(--fb-bg-tertiary));
+  --bg-info: var(--color-background-info, var(--fb-bg-info));
+  --bg-success: var(--color-background-success, var(--fb-bg-success));
+  --bg-warning: var(--color-background-warning, var(--fb-bg-warning));
+  --bg-danger: var(--color-background-danger, var(--fb-bg-danger));
+
+  --text-primary: var(--color-text-primary, var(--fb-text-primary));
+  --text-secondary: var(--color-text-secondary, var(--fb-text-secondary));
+  --text-tertiary: var(--color-text-tertiary, var(--fb-text-tertiary));
+  --text-info: var(--color-text-info, var(--fb-text-info));
+  --text-success: var(--color-text-success, var(--fb-text-success));
+  --text-warning: var(--color-text-warning, var(--fb-text-warning));
+  --text-danger: var(--color-text-danger, var(--fb-text-danger));
+
+  --border-primary: var(--color-border-primary, var(--fb-border-primary));
+  --border-secondary: var(--color-border-secondary, var(--fb-border-secondary));
+  --ring-primary: var(--color-ring-primary, var(--fb-ring-primary));
+  --font-ui: var(
+    --font-sans,
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Text",
+    "PingFang TC",
+    "Noto Sans TC",
+    system-ui,
+    sans-serif
+  );
+
+  color-scheme: light dark;
+  accent-color: var(--ring-primary);
+  scrollbar-color: var(--border-primary) transparent;
+}
+
+/* Explicit host theme override for iframe environments (e.g. WebKit/Safari) */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --fb-bg-primary: var(--fb-bg-primary-dark);
+  --fb-bg-secondary: var(--fb-bg-secondary-dark);
+  --fb-bg-tertiary: var(--fb-bg-tertiary-dark);
+  --fb-text-primary: var(--fb-text-primary-dark);
+  --fb-text-secondary: var(--fb-text-secondary-dark);
+  --fb-text-tertiary: var(--fb-text-tertiary-dark);
+  --fb-border-primary: var(--fb-border-primary-dark);
+  --fb-border-secondary: var(--fb-border-secondary-dark);
+  --fb-ring-primary: var(--fb-ring-primary-dark);
+  --fb-bg-info: var(--fb-bg-info-dark);
+  --fb-text-info: var(--fb-text-info-dark);
+  --fb-bg-success: var(--fb-bg-success-dark);
+  --fb-text-success: var(--fb-text-success-dark);
+  --fb-bg-warning: var(--fb-bg-warning-dark);
+  --fb-text-warning: var(--fb-text-warning-dark);
+  --fb-bg-danger: var(--fb-bg-danger-dark);
+  --fb-text-danger: var(--fb-text-danger-dark);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --fb-bg-primary: var(--fb-bg-primary-light);
+  --fb-bg-secondary: var(--fb-bg-secondary-light);
+  --fb-bg-tertiary: var(--fb-bg-tertiary-light);
+  --fb-text-primary: var(--fb-text-primary-light);
+  --fb-text-secondary: var(--fb-text-secondary-light);
+  --fb-text-tertiary: var(--fb-text-tertiary-light);
+  --fb-border-primary: var(--fb-border-primary-light);
+  --fb-border-secondary: var(--fb-border-secondary-light);
+  --fb-ring-primary: var(--fb-ring-primary-light);
+  --fb-bg-info: var(--fb-bg-info-light);
+  --fb-text-info: var(--fb-text-info-light);
+  --fb-bg-success: var(--fb-bg-success-light);
+  --fb-text-success: var(--fb-text-success-light);
+  --fb-bg-warning: var(--fb-bg-warning-light);
+  --fb-text-warning: var(--fb-text-warning-light);
+  --fb-bg-danger: var(--fb-bg-danger-light);
+  --fb-text-danger: var(--fb-text-danger-light);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus indicators */
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--ring-primary);
+  outline-offset: 2px;
+}
+
+/* App Shell */
+.app-shell {
+  container-type: inline-size;
+  container-name: app-shell;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+/* Top Bar */
+.top-bar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 7px 10px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-secondary);
+  min-height: 44px;
+}
+
+.top-bar-left,
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.top-bar-left {
+  flex: 1 1 auto;
+}
+
+.top-bar-right {
+  flex: 0 0 auto;
+}
+
+.phone-select {
+  appearance: auto;
+  min-width: 0;
+  flex: 0 1 142px;
+  height: 30px;
+  padding: 0 8px;
+  border-radius: 7px;
+  border: 1px solid var(--border-primary);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.phone-select:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.top-btn,
+.top-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-inline-size: 32px;
+  min-block-size: 30px;
+  padding: 0 8px;
+  border-radius: 7px;
+  border: 1px solid var(--border-primary);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+
+.top-icon-btn {
+  padding: 0;
+  min-inline-size: 32px;
+}
+
+.top-btn-boot {
+  background: var(--bg-success);
+  color: var(--text-success);
+  border-color: color-mix(in srgb, var(--text-success) 35%, transparent);
+}
+
+.top-btn-stop {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+.top-btn:disabled,
+.top-icon-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.mode-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-block-size: 30px;
+  padding: 0 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border-primary);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+
+.mode-badge.mode-stream {
+  background: var(--bg-success);
+  color: var(--text-success);
+  border-color: color-mix(in srgb, var(--text-success) 32%, transparent);
+}
+
+.mode-badge.mode-poll.is-fallback {
+  background: var(--bg-warning);
+  color: var(--text-warning);
+  border-color: color-mix(in srgb, var(--text-warning) 35%, transparent);
+}
+
+.mode-badge.mode-poll:not(.is-fallback) {
+  background: var(--bg-info);
+  color: var(--text-info);
+  border-color: color-mix(in srgb, var(--text-info) 32%, transparent);
+}
+
+.mode-text-compact {
+  display: none;
+}
+
+@media (hover: hover) {
+  .top-btn:not(:disabled):hover,
+  .top-icon-btn:not(:disabled):hover,
+  .mode-badge:hover {
+    filter: brightness(1.06);
+  }
+}
+
+.top-icon-btn.is-spinning svg {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: spin-360 720ms linear infinite;
+  }
+}
+
+/* Main Workspace Body: stacked by default (narrow aux_pane) */
+.workspace-body {
+  flex: 1 1 0;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Phone Stage with size containment for exact aspect-ratio fitting */
+.stage-viewport {
+  flex: 1 1 0;
+  width: 100%;
+  min-height: 0;
+  min-width: 0;
+  container-type: size;
+  display: grid;
+  place-items: center;
+  padding: 8px 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Titanium iPhone Bezel */
+.phone-bezel {
+  --bezel-pad: clamp(6px, 1.4cqh, 10px);
+  --outer-radius: clamp(22px, 5.2cqh, 42px);
+  --inner-radius: max(14px, calc(var(--outer-radius) - var(--bezel-pad)));
+
+  position: relative;
+  display: inline-flex;
+  padding: var(--bezel-pad);
+  border-radius: var(--outer-radius);
+  background: linear-gradient(145deg, #2d3036 0%, #16171b 52%, #23252a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.28),
+    0 2px 8px rgba(0, 0, 0, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+:root[data-theme="light"] .phone-bezel {
+  box-shadow:
+    0 14px 34px rgba(15, 23, 42, 0.18),
+    0 3px 10px rgba(15, 23, 42, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+/* Subtle physical frame buttons */
+.bezel-btn {
+  position: absolute;
+  width: 2.5px;
+  border-radius: 2px;
+  background: #3a3e47;
+  pointer-events: none;
+}
+
+.bezel-btn-silent {
+  left: -3px;
+  top: 15%;
+  height: 4%;
+}
+
+.bezel-btn-vol-up {
+  left: -3px;
+  top: 22.5%;
+  height: 7.5%;
+}
+
+.bezel-btn-vol-down {
+  left: -3px;
+  top: 32%;
+  height: 7.5%;
+}
+
+.bezel-btn-power {
+  right: -3px;
+  top: 25%;
+  height: 11%;
+}
+
+/* Exact-ratio Screen Canvas */
+.phone-screen {
+  position: relative;
+  aspect-ratio: var(--phone-aspect, 0.45995);
+  height: min(calc(100cqh - 24px), calc((100cqw - 24px) / var(--phone-aspect, 0.45995)));
+  width: auto;
+  border-radius: var(--inner-radius);
+  overflow: hidden;
+  background: #090a0d;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+@supports not (height: 1cqh) {
+  .phone-screen {
+    height: auto;
+    max-height: calc(100dvh - 140px);
+    max-width: calc(100vw - 44px);
+    width: 100%;
+  }
+}
+
+.phone-screen.is-interactive {
+  cursor: pointer;
+}
+
+.phone-screen.is-interactive:active {
+  cursor: grabbing;
+}
+
+.phone-video-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: opacity 160ms ease;
+}
+
+.phone-video-img.is-loaded {
+  opacity: 1;
+}
+
+/* Screen Placeholders & Sleeping State */
+.screen-placeholder,
+.screen-loading-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  text-align: center;
+  color: #e6eaf2;
+  background: radial-gradient(circle at 50% 25%, #1c2029 0%, #0d0f14 75%);
+}
+
+.screen-loading-overlay {
+  background: rgba(11, 13, 18, 0.84);
+}
+
+.placeholder-icon {
+  color: #8f9bb3;
+}
+
+.placeholder-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #f3f5f9;
+}
+
+.placeholder-sub {
+  margin: 0;
+  font-size: 11.5px;
+  color: #9ba4b5;
+  max-width: 22ch;
+}
+
+.sleep-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #b7c0d0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sleep-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #8f9bb3;
+}
+
+.boot-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 6px;
+  min-block-size: 38px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #2563eb;
+  color: #ffffff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+
+.boot-cta:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+@media (hover: hover) {
+  .boot-cta:not(:disabled):hover {
+    background: #1d4ed8;
+  }
+}
+
+/* Spinner */
+.spinner-ring {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2.5px solid rgba(255, 255, 255, 0.18);
+  border-top-color: #60a5fa;
+  @media (prefers-reduced-motion: no-preference) {
+    animation: spin-360 760ms linear infinite;
+  }
+}
+
+.spinner-ring.spinner-sm {
+  width: 15px;
+  height: 15px;
+  border-width: 2px;
+  border-top-color: #ffffff;
+}
+
+/* Touch Ripple & Swipe Trail (compositor-only opacity + transform) */
+.touch-ripple {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  margin-left: -17px;
+  margin-top: -17px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.92);
+  background: rgba(96, 165, 250, 0.34);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  opacity: 0.85;
+  transform: scale(0.95);
+  @media (prefers-reduced-motion: no-preference) {
+    animation: touch-ripple-pop 420ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+.swipe-trail-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+.swipe-trail-svg.is-fading {
+  opacity: 0;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: opacity 300ms ease-out;
+  }
+}
+
+.swipe-trail-line {
+  stroke: rgba(96, 165, 250, 0.9);
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45));
+}
+
+.swipe-trail-start {
+  fill: rgba(255, 255, 255, 0.9);
+  stroke: rgba(37, 99, 235, 0.95);
+  stroke-width: 2;
+}
+
+.swipe-trail-end {
+  fill: rgba(96, 165, 250, 0.95);
+  stroke: #ffffff;
+  stroke-width: 2.5;
+}
+
+/* Action Toolbar Dock */
+.dock-container {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 6px 8px 8px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-secondary);
+}
+
+.action-toolbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  max-width: 100%;
+}
+
+.toolbar-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.toolbar-separator {
+  align-self: stretch;
+  inline-size: 0;
+  min-block-size: 20px;
+  margin: 4px 3px;
+  border-inline-start: 1px solid var(--border-primary);
+}
+
+.tb-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-inline-size: 36px;
+  min-block-size: 36px;
+  padding: 0 9px;
+  border-radius: 8px;
+  border: 1px solid var(--border-secondary);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+
+.tb-label {
+  display: none;
+}
+
+.tb-btn[aria-pressed="true"] {
+  background: var(--bg-info);
+  color: var(--text-info);
+  border-color: var(--ring-primary);
+  box-shadow: inset 0 0 0 1px var(--ring-primary);
+}
+
+.tb-btn[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.tb-btn-attention {
+  background: var(--bg-warning);
+  color: var(--text-warning);
+  border-color: color-mix(in srgb, var(--text-warning) 55%, transparent);
+}
+
+.tb-icon-badge-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tb-attention-dot {
+  position: absolute;
+  top: -3px;
+  right: -4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-warning);
+  border: 1.5px solid var(--bg-secondary);
+}
+
+.tb-btn-agent {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+}
+
+.tb-btn-agent-primary {
+  background: var(--bg-info);
+  color: var(--text-info);
+  border-color: color-mix(in srgb, var(--text-info) 38%, transparent);
+}
+
+@media (hover: hover) {
+  .tb-btn:not([aria-disabled="true"]):hover {
+    border-color: var(--border-primary);
+    filter: brightness(1.06);
+  }
+}
+
+@media (pointer: coarse) {
+  .tb-btn,
+  .top-btn,
+  .top-icon-btn,
+  .kb-btn {
+    min-inline-size: 44px;
+    min-block-size: 44px;
+  }
+}
+
+/* Collapsible Keyboard Bar */
+.keyboard-drawer {
+  flex: 0 0 auto;
+  padding: 7px 10px 9px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-secondary);
+}
+
+.keyboard-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.keyboard-input-wrap {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.keyboard-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 32px;
+  padding: 0 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border-primary);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 12.5px;
+}
+
+.keyboard-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.keyboard-quick-keys {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.kb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-inline-size: 32px;
+  min-block-size: 32px;
+  padding: 0 8px;
+  border-radius: 7px;
+  border: 1px solid var(--border-primary);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.kb-btn-primary {
+  background: var(--ring-primary);
+  border-color: var(--ring-primary);
+  color: #ffffff;
+}
+
+.kb-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.kb-key-text {
+  display: none;
+}
+
+/* Toast Notifications (popover="manual" Top-Layer aware) */
+.toast-stack {
+  position: fixed;
+  inset: auto 12px 58px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+  z-index: 40;
+}
+
+.toast-item {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: min(360px, calc(100vw - 24px));
+  padding: 8px 10px 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border-primary);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+}
+
+.toast-item[popover] {
+  position: fixed;
+  inset: auto;
+  left: 50%;
+  bottom: calc(56px + var(--toast-index, 0) * 46px);
+  margin: 0;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    display 180ms,
+    overlay 180ms;
+  transition-behavior: allow-discrete;
+}
+
+.toast-item[popover]:is(:popover-open, .\:popover-open) {
+  display: inline-flex;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @starting-style {
+    .toast-item[popover]:is(:popover-open, .\:popover-open) {
+      opacity: 0;
+      transform: translateX(-50%) translateY(8px);
+    }
+  }
+}
+
+.toast-dot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ring-primary);
+}
+
+.toast-tone-success .toast-dot {
+  background: var(--text-success);
+}
+
+.toast-tone-warning .toast-dot {
+  background: var(--text-warning);
+}
+
+.toast-tone-danger .toast-dot {
+  background: var(--text-danger);
+}
+
+.toast-text {
+  overflow-wrap: anywhere;
+}
+
+.toast-close {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 24px;
+  min-block-size: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .toast-close:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+  }
+}
+
+/* Fallback media query for browsers without container queries */
+@media (min-width: 660px) {
+  .workspace-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: stretch;
+  }
+
+  .dock-container {
+    border-top: 0;
+    border-inline-start: 1px solid var(--border-secondary);
+    align-items: center;
+    padding: 14px 12px;
+  }
+
+  .action-toolbar,
+  .toolbar-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbar-separator {
+    align-self: stretch;
+    inline-size: auto;
+    min-block-size: 0;
+    block-size: 0;
+    margin: 4px 2px;
+    border-inline-start: 0;
+    border-block-start: 1px solid var(--border-primary);
+  }
+
+  .tb-btn {
+    justify-content: flex-start;
+    padding: 0 12px;
+  }
+
+  .tb-label {
+    display: inline;
+  }
+
+  .kb-key-text {
+    display: inline;
+  }
+}
+
+/* Container-query layout overrides where container queries are supported */
+@supports (container-type: inline-size) {
+  @media (min-width: 660px) {
+    .workspace-body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dock-container {
+      border-inline-start: 0;
+      border-top: 1px solid var(--border-secondary);
+      padding: 6px 8px 8px;
+    }
+
+    .action-toolbar,
+    .toolbar-group {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .toolbar-separator {
+      inline-size: 0;
+      min-block-size: 20px;
+      margin: 4px 3px;
+      border-block-start: 0;
+      border-inline-start: 1px solid var(--border-primary);
+    }
+
+    .tb-btn {
+      justify-content: center;
+      padding: 0 9px;
+    }
+
+    .tb-label {
+      display: none;
+    }
+
+    .kb-key-text {
+      display: none;
+    }
+  }
+
+  /* Compact top bar adjustments for very narrow aux_pane (< 345px) */
+  @container app-shell (max-width: 344px) {
+    .top-bar {
+      padding: 6px 7px;
+      gap: 4px;
+    }
+
+    .top-btn-label {
+      display: none;
+    }
+
+    .mode-text-full {
+      display: none;
+    }
+
+    .mode-text-compact {
+      display: inline;
+    }
+  }
+
+  /* Medium aux_pane (420px - 659px): show button labels on bottom dock */
+  @container app-shell (min-width: 440px) {
+    .kb-key-text {
+      display: inline;
+    }
+  }
+
+  /* Wide global view (>= 660px): vertical side dock rail beside full-height phone */
+  @container app-shell (min-width: 660px) {
+    .top-bar {
+      padding: 8px 16px;
+    }
+
+    .phone-select {
+      flex-basis: 185px;
+    }
+
+    .workspace-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: stretch;
+    }
+
+    .stage-viewport {
+      padding: 14px 20px;
+    }
+
+    .dock-container {
+      border-top: 0;
+      border-inline-start: 1px solid var(--border-secondary);
+      align-items: center;
+      padding: 16px 14px;
+      min-width: 158px;
+    }
+
+    .action-toolbar {
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+      gap: 8px;
+    }
+
+    .toolbar-group {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 6px;
+    }
+
+    .toolbar-separator {
+      inline-size: auto;
+      min-block-size: 0;
+      block-size: 0;
+      margin: 4px 2px;
+      border-inline-start: 0;
+      border-block-start: 1px solid var(--border-primary);
+    }
+
+    .tb-btn {
+      justify-content: flex-start;
+      padding: 0 12px;
+      min-block-size: 38px;
+    }
+
+    .tb-label {
+      display: inline;
+    }
+  }
+}
+
+/* High-Contrast / Forced Colors Mode support */
+@media (forced-colors: active) {
+  .tb-btn,
+  .top-btn,
+  .top-icon-btn,
+  .mode-badge,
+  .kb-btn,
+  .phone-select,
+  .toast-item {
+    border: 1px solid ButtonText;
+  }
+
+  .tb-btn[aria-pressed="true"] {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+
+  .toolbar-separator {
+    border-color: ButtonText;
+  }
+}
+
+@keyframes spin-360 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes touch-ripple-pop {
+  0% {
+    opacity: 0.92;
+    transform: scale(0.32);
+  }
+  70% {
+    opacity: 0.65;
+    transform: scale(1.18);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.55);
+  }
+}

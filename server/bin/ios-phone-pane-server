@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PLUGIN_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+
+export PATH="${HOME}/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${PATH:-}"
+export IOS_PHONE_PANE_HTML="${IOS_PHONE_PANE_HTML:-${PLUGIN_ROOT}/dist/app.html}"
+export PYTHONUNBUFFERED=1
+
+TERMINAL_PHONE_HOME="${TERMINAL_PHONE_HOME:-${HOME}/Library/Application Support/terminal-phone}"
+PYTHON_BIN="${IOS_PHONE_PANE_PYTHON:-${TERMINAL_PHONE_HOME}/dependencies/idb-venv/bin/python3}"
+
+if [[ ! -x "${PYTHON_BIN}" ]]; then
+  echo "ios-phone-pane-server: missing terminal-phone idb-venv python3 at ${PYTHON_BIN} (run 'terminal-phone setup' first)" >&2
+  exit 1
+fi
+
+exec "${PYTHON_BIN}" -u "${PLUGIN_ROOT}/server/main.py" "$@"

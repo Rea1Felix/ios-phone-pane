@@ -1,0 +1,21 @@
+{
+  "name": "ios-phone-pane",
+  "displayName": "iPhone 互動預覽面板",
+  "description": "在 Antigravity 側邊欄與全頁面板中即時以 30fps 預覽並互動操控本地 iOS 模擬器，支援點擊、滑動、文字輸入、外觀切換與一鍵截圖附帶給 Agent。",
+  "version": "0.1.0",
+  "author": {
+    "name": "Rea1Felix",
+    "url": "https://github.com/Rea1Felix"
+  },
+  "homepage": "https://github.com/Rea1Felix/ios-phone-pane",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rea1Felix/ios-phone-pane"
+  },
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "開啟 iPhone 互動預覽面板查看目前執行中的模擬器",
+    "啟動模擬器並開啟 iPhone 預覽面板讓我操作畫面",
+    "開啟 iPhone 預覽面板，協助我檢查目前 App 的排版與互動"
+  ]
+}

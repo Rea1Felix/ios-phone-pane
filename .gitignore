@@ -1,0 +1,17 @@
+# Dependencies & caches
+web/node_modules/
+web/.vite/
+server/__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# OS & local artifacts
+.DS_Store
+*.log
+.env
+.env.*
+
+# Note: dist/app.html is intentionally committed (~300 KB single-file bundle)
+# so users can git clone directly into ~/.gemini/config/plugins/ios-phone-pane/
+# without needing Node.js or a manual build step.

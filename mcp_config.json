@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "phone": {
+      "command": "bash",
+      "args": ["${PLUGIN_ROOT}/server/bin/ios-phone-pane-server"],
+      "env": {
+        "IOS_PHONE_PANE_HTML": "${PLUGIN_ROOT}/dist/app.html"
+      }
+    }
+  }
+}
